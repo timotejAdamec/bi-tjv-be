@@ -1,0 +1,17 @@
+BUSINESS OPERACE:
+selectColleagues(String name) {
+    Vybere všechny vedoucí, kteří vedli nebo vedou všechny projekty, 
+    které byly někdy vedeny vedoucím "$name".
+}
+
+
+DOTAZ:
+select * from vedouci where not exists(
+    select vedeno_dotycnym.projekt_id from (
+        select vedeni.vedouci_id, vedeni.projekt_id from vedeni natural join vedouci where jmeno = 'jmeno'
+        ) as vedeno_dotycnym
+        where not exists(
+        select * from vedeni
+        where vedeni.vedouci_id=vedouci.vedouci_id and vedeni.projekt_id=vedeno_dotycnym.projekt_id
+    )
+);
