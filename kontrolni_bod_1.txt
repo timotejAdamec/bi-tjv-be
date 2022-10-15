@@ -1,8 +1,21 @@
 BUSINESS OPERACE:
-    void takeOverProjectsOfColleagues() {}
+    void takeOverProjectsOfColleagues(String jmeno) {
+        if (jmeno.isNullOrBlank()) {
+            notifyNonExistentUser();
+            return;
+        } 
+        Collection<Project> colleagueProjects = Vybere všechny projekty,
+                                                které jsou momentálně někým vedeny, 
+                                                a které které byly někdy vedeny vedoucím "$jmeno";
+        for(Project project: colleagueProjects) {
+            project.jeVeden = jmeno;
+            repository.updateProject(project);
+        }
+    }
 
 
 DOTAZ:
+selectColleagues() {
     Vybere všechny vedoucí, kteří vedli nebo vedou projekty, 
     které někdy byly nebo jsou vedeny vedoucím "$jmeno".
-
+}
