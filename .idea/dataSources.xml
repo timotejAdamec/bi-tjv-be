@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="PostgreSQL_Heroku" uuid="11d866f0-01f2-4e73-bb2d-4a04d6bba76a">
-      <driver-ref>postgresql</driver-ref>
+    <data-source source="LOCAL" name="semester_project" uuid="052a0973-cb41-495e-a011-30019a71a6f6">
+      <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://ec2-99-80-170-190.eu-west-1.compute.amazonaws.com:5432/de66hb65chrtp7</jdbc-url>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:mem:semester_project</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
