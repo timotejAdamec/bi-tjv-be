@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 public final class Object {
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long objectId;
 

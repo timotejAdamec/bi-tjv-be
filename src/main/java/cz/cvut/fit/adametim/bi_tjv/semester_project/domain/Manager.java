@@ -7,6 +7,7 @@ import java.util.Set;
 @Entity
 public final class Manager {
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long managerId;
 
