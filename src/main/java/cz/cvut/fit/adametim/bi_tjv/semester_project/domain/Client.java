@@ -2,6 +2,7 @@ package cz.cvut.fit.adametim.bi_tjv.semester_project.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Entity
 public final class Client {
@@ -12,6 +13,9 @@ public final class Client {
     @NotNull
     @Column(nullable = false)
     private String name;
+
+    @OneToMany
+    private Set<Project> projects;
 
     @Override
     public String toString() {
