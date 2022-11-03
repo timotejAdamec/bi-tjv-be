@@ -32,4 +32,45 @@ public final class Project {
 
     @OneToMany
     private Set<Object> objects;
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "projectId=" + projectId +
+                ", name='" + name + '\'' +
+                ", siteAddress='" + siteAddress + '\'' +
+                ", client=" + client +
+                ", currentManager=" + currentManager +
+                ", managers=" + managers +
+                ", objects=" + objects +
+                '}';
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSiteAddress() {
+        return siteAddress;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Manager getCurrentManager() {
+        return currentManager;
+    }
+
+    public Set<Manager> getManagers() {
+        return managers;
+    }
+
+    public Set<Object> getObjects() {
+        return objects;
+    }
 }

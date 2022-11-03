@@ -15,11 +15,19 @@ public final class Object {
     @JoinColumn(nullable = false)
     private Project project;
 
+    @Override
+    public String toString() {
+        return "Object{" +
+                "objectId=" + objectId +
+                ", project=" + project +
+                '}';
+    }
+
     public Long getObjectId() {
         return objectId;
     }
 
-    public void setObjectId(Long object_id) {
-        this.objectId = object_id;
+    public Project getProject() {
+        return project;
     }
 }

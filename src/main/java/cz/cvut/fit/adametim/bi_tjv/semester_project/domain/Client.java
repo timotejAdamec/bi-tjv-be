@@ -21,8 +21,9 @@ public final class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "client_id=" + clientId +
+                "clientId=" + clientId +
                 ", name='" + name + '\'' +
+                ", projects=" + projects +
                 '}';
     }
 
@@ -32,5 +33,9 @@ public final class Client {
 
     public String getName() {
         return name;
+    }
+
+    public Set<Project> getProjects() {
+        return projects;
     }
 }
