@@ -18,6 +18,13 @@ public final class Client {
     @OneToMany
     private Set<Project> projects;
 
+    public Client(Long clientId, String name) {
+        this.clientId = clientId;
+        this.name = name;
+    }
+
+    public Client() {}
+
     @Override
     public String toString() {
         return "Client{" +

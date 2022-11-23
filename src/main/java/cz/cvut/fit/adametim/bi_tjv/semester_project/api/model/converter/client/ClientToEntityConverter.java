@@ -10,6 +10,9 @@ import java.util.function.Function;
 public final class ClientToEntityConverter implements Function<ClientDto, Client> {
     @Override
     public Client apply(ClientDto clientDto) {
-        return null;
+        return new Client(
+                clientDto.clientId(),
+                clientDto.name()
+        );
     }
 }

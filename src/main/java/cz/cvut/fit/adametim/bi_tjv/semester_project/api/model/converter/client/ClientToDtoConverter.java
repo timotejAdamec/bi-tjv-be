@@ -10,10 +10,9 @@ import java.util.function.Function;
 public final class ClientToDtoConverter implements Function<Client, ClientDto> {
     @Override
     public ClientDto apply(Client client) {
-        var clientDto = new ClientDto(
+        return new ClientDto(
                 client.getClientId(),
                 client.getName()
         );
-        return clientDto;
     }
 }
