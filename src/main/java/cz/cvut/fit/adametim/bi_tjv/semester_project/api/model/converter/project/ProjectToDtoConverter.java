@@ -10,6 +10,11 @@ import java.util.function.Function;
 public final class ProjectToDtoConverter implements Function<Project, ProjectDto> {
     @Override
     public ProjectDto apply(Project project) {
-        return null;
+        return new ProjectDto(
+                project.getProjectId(),
+                project.getName(),
+                project.getSiteAddress(),
+                project.getClient().getClientId()
+        );
     }
 }
