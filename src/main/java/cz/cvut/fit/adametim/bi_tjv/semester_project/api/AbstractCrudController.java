@@ -2,8 +2,6 @@ package cz.cvut.fit.adametim.bi_tjv.semester_project.api;
 
 import cz.cvut.fit.adametim.bi_tjv.semester_project.business.AbstractCrudService;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.DomainEntity;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -17,13 +15,15 @@ import java.util.function.Function;
  * @param <D> dto.
  * @param <ID> entity id.
  */
-public class Controller<E extends DomainEntity<ID>, D, ID> {
+public class AbstractCrudController<E extends DomainEntity<ID>, D, ID> {
 
     protected AbstractCrudService<E, ID> service;
     protected Function<E, D> toDtoConverter;
     protected Function<D, E> toEntityConverter;
 
-    public Controller(AbstractCrudService<E, ID> service, Function<E, D> toDtoConverter, Function<D, E> toEntityConverter) {
+    public AbstractCrudController(AbstractCrudService<E, ID> service,
+                                  Function<E, D> toDtoConverter,
+                                  Function<D, E> toEntityConverter) {
         this.service = service;
         this.toDtoConverter = toDtoConverter;
         this.toEntityConverter = toEntityConverter;
