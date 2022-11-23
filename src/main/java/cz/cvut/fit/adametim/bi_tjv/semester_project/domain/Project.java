@@ -87,4 +87,32 @@ public final class Project implements DomainEntity<Long> {
     public Set<Object> getObjects() {
         return objects;
     }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSiteAddress(String siteAddress) {
+        this.siteAddress = siteAddress;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public void setCurrentManager(Manager currentManager) {
+        this.currentManager = currentManager;
+    }
+
+    public void setManagersHistory(Set<Manager> managersHistory) {
+        this.managersHistory = managersHistory;
+    }
+
+    public void setObjects(Set<Object> objects) {
+        this.objects = objects;
+    }
 }

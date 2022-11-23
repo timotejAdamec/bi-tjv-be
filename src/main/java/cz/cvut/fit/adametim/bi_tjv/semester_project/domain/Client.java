@@ -51,5 +51,15 @@ public final class Client implements DomainEntity<Long> {
         return projects;
     }
 
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
 }

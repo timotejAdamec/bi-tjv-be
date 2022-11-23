@@ -42,4 +42,12 @@ public final class Object implements DomainEntity<Long>{
     public Project getProject() {
         return project;
     }
+
+    public void setObjectId(Long objectId) {
+        this.objectId = objectId;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 }
