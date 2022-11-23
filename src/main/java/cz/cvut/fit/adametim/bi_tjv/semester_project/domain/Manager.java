@@ -68,4 +68,24 @@ public final class Manager implements DomainEntity<Long> {
     public Set<Project> getProjectsLed() {
         return projectsLed;
     }
+
+    public void setManagerId(Long managerId) {
+        this.managerId = managerId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setProjectsCurrentlyLed(Set<Project> projectsCurrentlyLed) {
+        this.projectsCurrentlyLed = projectsCurrentlyLed;
+    }
+
+    public void setProjectsLed(Set<Project> projectsLed) {
+        this.projectsLed = projectsLed;
+    }
 }

@@ -15,7 +15,7 @@ BUSINESS OPERACE:
 
 
 DOTAZ:
-selectColleagues() {
+getColleagues() {
     Vybere všechny vedoucí, kteří vedli nebo vedou projekty, 
     které někdy byly nebo jsou vedeny vedoucím "$jmeno".
 }
