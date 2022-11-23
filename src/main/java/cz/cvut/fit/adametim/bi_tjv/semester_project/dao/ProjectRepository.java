@@ -10,6 +10,6 @@ import java.util.Collection;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Long> {
-    @Query(value = "SELECT p FROM Project p WHERE :manager IN p.managersHistory")
+    @Query(value = "SELECT p FROM Project p WHERE p.currentManager IS NOT NULL AND :manager IN p.managersHistory")
     Collection<Project> getColleagueProjects(Manager manager);
 }
