@@ -33,6 +33,15 @@ public final class Project {
     @OneToMany
     private Set<Object> objects;
 
+    public Project(Long projectId, String name, String siteAddress, Client client) {
+        this.projectId = projectId;
+        this.name = name;
+        this.siteAddress = siteAddress;
+        this.client = client;
+    }
+
+    public Project() {}
+
     @Override
     public String toString() {
         return "Project{" +

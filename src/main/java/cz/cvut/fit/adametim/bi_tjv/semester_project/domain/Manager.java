@@ -25,6 +25,14 @@ public final class Manager {
     @ManyToMany
     private Set<Project> projectsLed;
 
+    public Manager(Long managerId, String name, String phoneNumber) {
+        this.managerId = managerId;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Manager() {}
+
     @Override
     public String toString() {
         return "Manager{" +
