@@ -28,7 +28,7 @@ public final class Project implements DomainEntity<Long> {
     private Manager currentManager;
 
     @ManyToMany
-    private Set<Manager> managers;
+    private Set<Manager> managersHistory;
 
     @OneToMany
     private Set<Object> objects;
@@ -55,7 +55,7 @@ public final class Project implements DomainEntity<Long> {
                 ", siteAddress='" + siteAddress + '\'' +
                 ", client=" + client +
                 ", currentManager=" + currentManager +
-                ", managers=" + managers +
+                ", managers=" + managersHistory +
                 ", objects=" + objects +
                 '}';
     }
@@ -80,8 +80,8 @@ public final class Project implements DomainEntity<Long> {
         return currentManager;
     }
 
-    public Set<Manager> getManagers() {
-        return managers;
+    public Set<Manager> getManagersHistory() {
+        return managersHistory;
     }
 
     public Set<Object> getObjects() {
