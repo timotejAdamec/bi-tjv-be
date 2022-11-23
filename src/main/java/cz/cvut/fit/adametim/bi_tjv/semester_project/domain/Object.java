@@ -15,6 +15,13 @@ public final class Object {
     @JoinColumn(nullable = false)
     private Project project;
 
+    public Object(Long objectId, Project project) {
+        this.objectId = objectId;
+        this.project = project;
+    }
+
+    public Object() {}
+
     @Override
     public String toString() {
         return "Object{" +

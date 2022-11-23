@@ -10,6 +10,9 @@ import java.util.function.Function;
 public final class ObjectToDtoConverter implements Function<Object, ObjectDto> {
     @Override
     public ObjectDto apply(Object object) {
-        return null;
+        return new ObjectDto(
+                object.getObjectId(),
+                object.getProject().getProjectId()
+        );
     }
 }
