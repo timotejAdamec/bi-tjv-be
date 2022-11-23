@@ -10,6 +10,10 @@ import java.util.function.Function;
 public final class ManagerToDtoConverter implements Function<Manager, ManagerDto> {
     @Override
     public ManagerDto apply(Manager manager) {
-        return null;
+        return new ManagerDto(
+                manager.getManagerId(),
+                manager.getName(),
+                manager.getPhoneNumber()
+        );
     }
 }

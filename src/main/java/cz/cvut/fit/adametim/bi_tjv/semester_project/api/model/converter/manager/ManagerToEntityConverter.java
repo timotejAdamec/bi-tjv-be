@@ -10,6 +10,10 @@ import java.util.function.Function;
 public final class ManagerToEntityConverter implements Function<ManagerDto, Manager> {
     @Override
     public Manager apply(ManagerDto managerDto) {
-        return null;
+        return new Manager(
+                managerDto.managerId(),
+                managerDto.name(),
+                managerDto.phoneNumber()
+        );
     }
 }
