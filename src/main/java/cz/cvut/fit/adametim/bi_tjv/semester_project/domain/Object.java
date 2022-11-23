@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public final class Object {
+public final class Object implements DomainEntity<Long>{
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,6 +21,11 @@ public final class Object {
     }
 
     public Object() {}
+
+    @Override
+    public Long getId() {
+        return objectId;
+    }
 
     @Override
     public String toString() {

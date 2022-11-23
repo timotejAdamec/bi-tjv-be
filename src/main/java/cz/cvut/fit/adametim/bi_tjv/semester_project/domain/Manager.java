@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
-public final class Manager {
+public final class Manager implements DomainEntity<Long> {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,6 +32,11 @@ public final class Manager {
     }
 
     public Manager() {}
+
+    @Override
+    public Long getId() {
+        return managerId;
+    }
 
     @Override
     public String toString() {
