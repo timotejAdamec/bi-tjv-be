@@ -1,4 +1,4 @@
-package cz.cvut.fit.adametim.bi_tjv.semester_project.dao;
+package cz.cvut.fit.adametim.bi_tjv.semester_project.dao.jpa;
 
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.Object;
 import org.springframework.data.jpa.repository.JpaRepository;
