@@ -37,7 +37,7 @@ public class AbstractCrudController<E extends DomainEntity<ID>, D, ID> {
 
     @GetMapping
     public Collection<D> readAll() {
-        Collection<D> returnCollection = new ArrayList<D>();
+        Collection<D> returnCollection = new ArrayList<>();
         var all = service.readAll();
         all.forEach(it ->
                 returnCollection.add(toDtoConverter.apply(it)));
@@ -49,7 +49,6 @@ public class AbstractCrudController<E extends DomainEntity<ID>, D, ID> {
         service.update(toEntityConverter.apply(e));
     }
 
-    //    DELETE /users/{id}
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable ("id") ID id) {
         service.deleteById(id);
