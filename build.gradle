@@ -31,5 +31,5 @@ tasks.named('test') {
 }
 
 tasks.named('bootBuildImage') {
-	imageName = 'cz.cvut.fit.adametim.bi_tjv.social_network.semestr_project_api'
+	imageName = 'cz.cvut.fit.adametim.bi_tjv.semester_project.semestr_project_api'
 }
