@@ -29,3 +29,7 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+tasks.named('bootBuildImage') {
+	imageName = 'cz.cvut.fit.adametim.bi_tjv.social_network.semestr_project_api'
+}
