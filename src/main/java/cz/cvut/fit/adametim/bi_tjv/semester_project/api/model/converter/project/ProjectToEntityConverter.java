@@ -24,7 +24,7 @@ public final class ProjectToEntityConverter implements Function<ProjectDto, Proj
                 projectDto.projectId(),
                 projectDto.name(),
                 projectDto.siteAddress(),
-                clientRepository.getReferenceById(projectDto.clientId())
+                clientRepository.findById(projectDto.clientId()).get()
         );
     }
 }

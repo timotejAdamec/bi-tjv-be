@@ -11,7 +11,7 @@ public final class ManagerToDtoConverter implements Function<Manager, ManagerDto
     @Override
     public ManagerDto apply(Manager manager) {
         return new ManagerDto(
-                manager.getManagerId(),
+                manager.getId(),
                 manager.getName(),
                 manager.getPhoneNumber()
         );

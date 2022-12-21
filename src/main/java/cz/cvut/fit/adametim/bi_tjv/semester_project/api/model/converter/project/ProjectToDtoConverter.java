@@ -11,10 +11,10 @@ public final class ProjectToDtoConverter implements Function<Project, ProjectDto
     @Override
     public ProjectDto apply(Project project) {
         return new ProjectDto(
-                project.getProjectId(),
+                project.getId(),
                 project.getName(),
                 project.getSiteAddress(),
-                project.getClient().getClientId()
+                project.getClient().getId()
         );
     }
 }

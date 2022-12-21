@@ -21,7 +21,7 @@ public final class ObjectToEntityConverter implements Function<ObjectDto, Object
     public Object apply(ObjectDto objectDto) {
         return new Object(
                 objectDto.objectId(),
-                projectRepository.getReferenceById(objectDto.projectId())
+                projectRepository.findById(objectDto.objectId()).get()
         );
     }
 }

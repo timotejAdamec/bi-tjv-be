@@ -11,7 +11,7 @@ public final class ClientToDtoConverter implements Function<Client, ClientDto> {
     @Override
     public ClientDto apply(Client client) {
         return new ClientDto(
-                client.getClientId(),
+                client.getId(),
                 client.getName()
         );
     }
