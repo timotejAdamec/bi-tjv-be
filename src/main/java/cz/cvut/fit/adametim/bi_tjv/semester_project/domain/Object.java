@@ -35,10 +35,6 @@ public final class Object implements DomainEntity<Long>{
                 '}';
     }
 
-    public Long getObjectId() {
-        return objectId;
-    }
-
     public Project getProject() {
         return project;
     }
