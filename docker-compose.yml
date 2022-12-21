@@ -9,7 +9,7 @@ services:
       - POSTGRES_PASSWORD=tjv
       - POSTGRES_DB=tjv_db
     ports:
-      - '5432:5432'
+      - '1863:1863'
     volumes:
       - .docker/postgres-data:/var/lib/postgresql/data
   api:

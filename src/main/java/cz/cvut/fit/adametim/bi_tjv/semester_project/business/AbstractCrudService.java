@@ -12,9 +12,6 @@ import java.util.Optional;
  * @param <E> Type of entity
  */
 public abstract class AbstractCrudService<E extends DomainEntity<K>, K> {
-    /**
-     * Reference to data (persistence) layer.
-     */
     protected final CrudRepository<E, K> repository;
 
     protected AbstractCrudService(CrudRepository<E, K> repository) {
@@ -33,10 +30,21 @@ public abstract class AbstractCrudService<E extends DomainEntity<K>, K> {
         return repository.save(entity); //delegate call to data layer
     }
 
+    /**
+     * Attempts to return an identity by its id.
+     *
+     * @param id id of the identity.
+     * @return the identity.
+     */
     public Optional<E> readById(K id) {
         return repository.findById(id);
     }
 
+    /**
+     * Returns all identities.
+     *
+     * @return all identities.
+     */
     public Iterable<E> readAll() {
         return repository.findAll();
     }
@@ -54,6 +62,11 @@ public abstract class AbstractCrudService<E extends DomainEntity<K>, K> {
             throw new EntityStateException(entity);
     }
 
+    /**
+     * Deletes an identity by its id.
+     *
+     * @param id id of the identity.
+     */
     public void deleteById(K id) {
         repository.deleteById(id);
     }
