@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 @RestController
 @RequestMapping("/objects")
-public final class ObjectController extends AbstractCrudController<Object, ObjectDto, Long> {
+public final class ObjectController extends CrudController<Object, ObjectDto, Long> {
     public ObjectController(AbstractCrudService<Object, Long> service,
                             Function<Object, ObjectDto> toDtoConverter,
                             Function<ObjectDto, Object> toEntityConverter) {

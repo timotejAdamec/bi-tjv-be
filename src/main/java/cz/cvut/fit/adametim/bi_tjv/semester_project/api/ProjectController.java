@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 @RestController
 @RequestMapping("/projects")
-public final class ProjectController extends AbstractCrudController<Project, ProjectDto, Long> {
+public final class ProjectController extends CrudController<Project, ProjectDto, Long> {
     public ProjectController(AbstractCrudService<Project, Long> service,
                              Function<Project, ProjectDto> toDtoConverter,
                              Function<ProjectDto, Project> toEntityConverter) {

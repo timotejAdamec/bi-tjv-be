@@ -15,15 +15,15 @@ import java.util.function.Function;
  * @param <D> dto.
  * @param <ID> entity id.
  */
-public class AbstractCrudController<E extends DomainEntity<ID>, D, ID> {
+public class CrudController<E extends DomainEntity<ID>, D, ID> {
 
     protected AbstractCrudService<E, ID> service;
     protected Function<E, D> toDtoConverter;
     protected Function<D, E> toEntityConverter;
 
-    public AbstractCrudController(AbstractCrudService<E, ID> service,
-                                  Function<E, D> toDtoConverter,
-                                  Function<D, E> toEntityConverter) {
+    public CrudController(AbstractCrudService<E, ID> service,
+                          Function<E, D> toDtoConverter,
+                          Function<D, E> toEntityConverter) {
         this.service = service;
         this.toDtoConverter = toDtoConverter;
         this.toEntityConverter = toEntityConverter;
