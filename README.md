@@ -11,4 +11,4 @@ How to run this application
 API documentation
 -----------------
 
-TODO Open `<server_url>/swagger-ui/index.html`, e.g., http://localhost:8080/swagger-ui/index.html
+Open `<server_url>/swagger-ui/index.html`, e.g., http://localhost:8080/swagger-ui/index.html
