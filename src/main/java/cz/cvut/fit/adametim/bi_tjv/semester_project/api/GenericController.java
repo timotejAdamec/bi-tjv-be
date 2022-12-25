@@ -15,20 +15,19 @@ import java.util.function.Function;
  * @param <D> dto.
  * @param <ID> entity id.
  */
-public class CrudController<E extends DomainEntity<ID>, D, ID> {
+public class GenericController<E extends DomainEntity<ID>, D, ID> {
 
     protected AbstractCrudService<E, ID> service;
     protected Function<E, D> toDtoConverter;
     protected Function<D, E> toEntityConverter;
 
-    public CrudController(AbstractCrudService<E, ID> service,
-                          Function<E, D> toDtoConverter,
-                          Function<D, E> toEntityConverter) {
+    public GenericController(AbstractCrudService<E, ID> service,
+                             Function<E, D> toDtoConverter,
+                             Function<D, E> toEntityConverter) {
         this.service = service;
         this.toDtoConverter = toDtoConverter;
         this.toEntityConverter = toEntityConverter;
     }
-
 
     @PostMapping
     public D create (@RequestBody D e) {
@@ -42,15 +41,5 @@ public class CrudController<E extends DomainEntity<ID>, D, ID> {
         all.forEach(it ->
                 returnCollection.add(toDtoConverter.apply(it)));
         return returnCollection;
-    }
-
-    @PutMapping("/{id}")
-    public void update(@RequestBody D e, @PathVariable("id") ID id) {
-        service.update(toEntityConverter.apply(e));
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable ("id") ID id) {
-        service.deleteById(id);
     }
 }
