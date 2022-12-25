@@ -16,6 +16,12 @@ public final class ClientController extends GenericController<Client, ClientDto,
         super(service, toDtoConverter, toEntityConverter);
     }
 
+    @GetMapping("/{clientId}")
+    public ClientDto get(@PathVariable("clientId") Long id) {
+        var client = service.readById(id);
+        return client.map(value -> toDtoConverter.apply(value)).orElse(null);
+    }
+
     @PutMapping("/{clientId}")
     public void update(@RequestBody ClientDto e, @PathVariable("clientId") Long id) {
         service.update(toEntityConverter.apply(e));
