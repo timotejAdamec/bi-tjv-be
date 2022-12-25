@@ -1,19 +1,38 @@
 package cz.cvut.fit.adametim.bi_tjv.semester_project.api;
 
+import cz.cvut.fit.adametim.bi_tjv.semester_project.api.exceptions.NotFoundException;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.api.model.ObjectDto;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.business.AbstractCrudService;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.Object;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.function.Function;
 
 @RestController
 @RequestMapping("/objects")
-public final class ObjectController extends AbstractCrudController<Object, ObjectDto, Long> {
+public final class ObjectController extends GenericController<Object, ObjectDto, Long> {
     public ObjectController(AbstractCrudService<Object, Long> service,
                             Function<Object, ObjectDto> toDtoConverter,
                             Function<ObjectDto, Object> toEntityConverter) {
         super(service, toDtoConverter, toEntityConverter);
+    }
+
+    @GetMapping("/{objectId}")
+    public ObjectDto get(@PathVariable("objectId") Long id) {
+        var object = service.readById(id);
+        if (object.isPresent()) {
+            return toDtoConverter.apply(object.get());
+        }
+        throw new NotFoundException();
+    }
+
+    @PutMapping("/{objectId}")
+    public void update(@RequestBody ObjectDto e, @PathVariable("objectId") Long id) {
+        service.update(toEntityConverter.apply(e));
+    }
+
+    @DeleteMapping("/{objectId}")
+    public void deleteById(@PathVariable ("objectId") Long id) {
+        service.deleteById(id);
     }
 }

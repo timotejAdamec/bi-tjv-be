@@ -11,8 +11,8 @@ public final class ObjectToDtoConverter implements Function<Object, ObjectDto> {
     @Override
     public ObjectDto apply(Object object) {
         return new ObjectDto(
-                object.getObjectId(),
-                object.getProject().getProjectId()
+                object.getId(),
+                object.getProject().getId()
         );
     }
 }

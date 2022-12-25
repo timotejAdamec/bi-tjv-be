@@ -1,19 +1,38 @@
 package cz.cvut.fit.adametim.bi_tjv.semester_project.api;
 
+import cz.cvut.fit.adametim.bi_tjv.semester_project.api.exceptions.NotFoundException;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.api.model.ManagerDto;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.business.AbstractCrudService;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.Manager;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.function.Function;
 
 @RestController
 @RequestMapping("/managers")
-public final class ManagerController extends AbstractCrudController<Manager, ManagerDto, Long> {
+public final class ManagerController extends GenericController<Manager, ManagerDto, Long> {
     public ManagerController(AbstractCrudService<Manager, Long> service,
                              Function<Manager, ManagerDto> toDtoConverter,
                              Function<ManagerDto, Manager> toEntityConverter) {
         super(service, toDtoConverter, toEntityConverter);
+    }
+
+    @GetMapping("/{managerId}")
+    public ManagerDto get(@PathVariable("managerId") Long id) {
+        var manager = service.readById(id);
+        if (manager.isPresent()) {
+            return toDtoConverter.apply(manager.get());
+        }
+        throw new NotFoundException();
+    }
+
+    @PutMapping("/{managerId}")
+    public void update(@RequestBody ManagerDto e, @PathVariable("managerId") Long id) {
+        service.update(toEntityConverter.apply(e));
+    }
+
+    @DeleteMapping("/{managerId}")
+    public void deleteById(@PathVariable ("managerId") Long id) {
+        service.deleteById(id);
     }
 }

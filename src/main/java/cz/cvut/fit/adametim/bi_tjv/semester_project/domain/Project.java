@@ -60,10 +60,6 @@ public final class Project implements DomainEntity<Long> {
                 '}';
     }
 
-    public Long getProjectId() {
-        return projectId;
-    }
-
     public String getName() {
         return name;
     }

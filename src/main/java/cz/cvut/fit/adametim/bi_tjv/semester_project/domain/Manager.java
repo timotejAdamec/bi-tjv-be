@@ -49,10 +49,6 @@ public final class Manager implements DomainEntity<Long> {
                 '}';
     }
 
-    public Long getManagerId() {
-        return managerId;
-    }
-
     public String getName() {
         return name;
     }

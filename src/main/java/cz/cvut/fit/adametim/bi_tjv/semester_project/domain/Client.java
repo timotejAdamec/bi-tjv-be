@@ -39,10 +39,6 @@ public final class Client implements DomainEntity<Long> {
                 '}';
     }
 
-    public Long getClientId() {
-        return clientId;
-    }
-
     public String getName() {
         return name;
     }

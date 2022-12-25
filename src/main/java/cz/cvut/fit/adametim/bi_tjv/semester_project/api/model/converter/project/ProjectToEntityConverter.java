@@ -1,7 +1,7 @@
 package cz.cvut.fit.adametim.bi_tjv.semester_project.api.model.converter.project;
 
 import cz.cvut.fit.adametim.bi_tjv.semester_project.api.model.ProjectDto;
-import cz.cvut.fit.adametim.bi_tjv.semester_project.dao.ClientRepository;
+import cz.cvut.fit.adametim.bi_tjv.semester_project.dao.jpa.ClientRepository;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,7 +24,7 @@ public final class ProjectToEntityConverter implements Function<ProjectDto, Proj
                 projectDto.projectId(),
                 projectDto.name(),
                 projectDto.siteAddress(),
-                clientRepository.getReferenceById(projectDto.clientId())
+                clientRepository.findById(projectDto.clientId()).get()
         );
     }
 }
