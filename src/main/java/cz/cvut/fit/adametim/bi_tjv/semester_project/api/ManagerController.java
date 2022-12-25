@@ -1,5 +1,6 @@
 package cz.cvut.fit.adametim.bi_tjv.semester_project.api;
 
+import cz.cvut.fit.adametim.bi_tjv.semester_project.api.exceptions.NotFoundException;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.api.model.ManagerDto;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.business.AbstractCrudService;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.Manager;
@@ -14,6 +15,15 @@ public final class ManagerController extends GenericController<Manager, ManagerD
                              Function<Manager, ManagerDto> toDtoConverter,
                              Function<ManagerDto, Manager> toEntityConverter) {
         super(service, toDtoConverter, toEntityConverter);
+    }
+
+    @GetMapping("/{managerId}")
+    public ManagerDto get(@PathVariable("managerId") Long id) {
+        var manager = service.readById(id);
+        if (manager.isPresent()) {
+            return toDtoConverter.apply(manager.get());
+        }
+        throw new NotFoundException();
     }
 
     @PutMapping("/{managerId}")

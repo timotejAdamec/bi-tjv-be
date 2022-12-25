@@ -1,5 +1,6 @@
 package cz.cvut.fit.adametim.bi_tjv.semester_project.api;
 
+import cz.cvut.fit.adametim.bi_tjv.semester_project.api.exceptions.NotFoundException;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.api.model.ClientDto;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.business.AbstractCrudService;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.Client;
@@ -19,7 +20,10 @@ public final class ClientController extends GenericController<Client, ClientDto,
     @GetMapping("/{clientId}")
     public ClientDto get(@PathVariable("clientId") Long id) {
         var client = service.readById(id);
-        return client.map(value -> toDtoConverter.apply(value)).orElse(null);
+        if (client.isPresent()) {
+            return toDtoConverter.apply(client.get());
+        }
+        throw new NotFoundException();
     }
 
     @PutMapping("/{clientId}")

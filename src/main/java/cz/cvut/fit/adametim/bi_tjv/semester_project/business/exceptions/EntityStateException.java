@@ -1,4 +1,4 @@
-package cz.cvut.fit.adametim.bi_tjv.semester_project.business;
+package cz.cvut.fit.adametim.bi_tjv.semester_project.business.exceptions;
 
 /**
  * An exception indicating problem related to existence of an entity.

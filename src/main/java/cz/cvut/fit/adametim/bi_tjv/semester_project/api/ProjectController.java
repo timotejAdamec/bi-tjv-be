@@ -1,5 +1,6 @@
 package cz.cvut.fit.adametim.bi_tjv.semester_project.api;
 
+import cz.cvut.fit.adametim.bi_tjv.semester_project.api.exceptions.NotFoundException;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.api.model.ProjectDto;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.business.AbstractCrudService;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.Project;
@@ -14,6 +15,15 @@ public final class ProjectController extends GenericController<Project, ProjectD
                              Function<Project, ProjectDto> toDtoConverter,
                              Function<ProjectDto, Project> toEntityConverter) {
         super(service, toDtoConverter, toEntityConverter);
+    }
+
+    @GetMapping("/{projectId}")
+    public ProjectDto get(@PathVariable("projectId") Long id) {
+        var project = service.readById(id);
+        if (project.isPresent()) {
+            return toDtoConverter.apply(project.get());
+        }
+        throw new NotFoundException();
     }
 
     @PutMapping("/{projectId}")

@@ -1,5 +1,6 @@
 package cz.cvut.fit.adametim.bi_tjv.semester_project.business;
 
+import cz.cvut.fit.adametim.bi_tjv.semester_project.business.exceptions.EntityStateException;
 import cz.cvut.fit.adametim.bi_tjv.semester_project.domain.DomainEntity;
 import org.springframework.data.repository.CrudRepository;
 
